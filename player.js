@@ -97,10 +97,10 @@ function duration(){
 
 function current(){
     
-    curTime         = vid.currentTime;
-    secCurTime      = Math.floor(curTime %60);
-    minCurTime      = Math.floor(curTime /60) %60;
-    hourCurTime     = Math.floor(curTime /60 /60);
+    var curTime         = vid.currentTime,
+        secCurTime      = Math.floor(curTime %60),
+        minCurTime      = Math.floor(curTime /60) %60,
+        hourCurTime     = Math.floor(curTime /60 /60);
     
     cur.innerHTML = "";
     
@@ -163,7 +163,7 @@ function SeekBuffer(){
 }
 
 function seekAble(e){
-    seekTime = vid.duration * ((e.pageX - progressBar.offsetLeft) / progressBar.offsetWidth);
+    var seekTime = vid.duration * ((e.pageX - progressBar.offsetLeft) / progressBar.offsetWidth);
     vid.currentTime = seekTime;
 }
 
@@ -176,10 +176,10 @@ function seekUpdate(){
 
 function seekTimeTxt(e){
     
-    seccurSeek      = Math.floor(vid.duration * (e.pageX - progressBar.offsetLeft ) / progressBar.offsetWidth) %60;
-    mincurSeek      = Math.floor((vid.duration * (e.pageX - progressBar.offsetLeft) / progressBar.offsetWidth) /60) %60;
-    hourcurSeek     = Math.floor((vid.duration * (e.pageX  - progressBar.offsetLeft) / progressBar.offsetWidth) /60 /60);
-    visibilityError = Math.sign(vid.duration * (e.pageX - progressBar.offsetLeft ) / progressBar.offsetWidth);
+    var seccurSeek      = Math.floor(vid.duration * (e.pageX - progressBar.offsetLeft ) / progressBar.offsetWidth) %60,
+        mincurSeek      = Math.floor((vid.duration * (e.pageX - progressBar.offsetLeft) / progressBar.offsetWidth) /60) %60,
+        hourcurSeek     = Math.floor((vid.duration * (e.pageX  - progressBar.offsetLeft) / progressBar.offsetWidth) /60 /60),
+        visibilityError = Math.sign(vid.duration * (e.pageX - progressBar.offsetLeft ) / progressBar.offsetWidth);
 
     curSeek.innerHTML = "";
 
